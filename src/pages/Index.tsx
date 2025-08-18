@@ -11,24 +11,31 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [selectedDays, setSelectedDays] = useState<string[]>([]);
-  const [selectedTimes, setSelectedTimes] = useState<string[]>([]);
+  const [selectedSchedule, setSelectedSchedule] = useState<Record<string, string[]>>({});
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleDayChange = (day: string, checked: boolean) => {
+  const handleDayToggle = (day: string, checked: boolean) => {
     if (checked) {
-      setSelectedDays([...selectedDays, day]);
+      setSelectedSchedule(prev => ({
+        ...prev,
+        [day]: []
+      }));
     } else {
-      setSelectedDays(selectedDays.filter(d => d !== day));
+      setSelectedSchedule(prev => {
+        const newSchedule = { ...prev };
+        delete newSchedule[day];
+        return newSchedule;
+      });
     }
   };
 
-  const handleTimeChange = (time: string, checked: boolean) => {
-    if (checked) {
-      setSelectedTimes([...selectedTimes, time]);
-    } else {
-      setSelectedTimes(selectedTimes.filter(t => t !== time));
-    }
+  const handleTimeToggle = (day: string, time: string, checked: boolean) => {
+    setSelectedSchedule(prev => ({
+      ...prev,
+      [day]: checked 
+        ? [...(prev[day] || []), time]
+        : (prev[day] || []).filter(t => t !== time)
+    }));
   };
 
   const timeSlots = Array.from({ length: 16 }, (_, i) => {
@@ -641,36 +648,35 @@ const Index = () => {
 
                   <div>
                     <Label className="text-dark-text font-medium mb-3 block">Когда вам будет удобно заниматься? *</Label>
-                    <div className="space-y-4">
-                      <div>
-                        <Label className="text-sm text-gray-600 mb-2 block">Дни недели:</Label>
-                        <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
-                          {['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'].map((day) => (
-                            <label key={day} className="flex items-center space-x-2">
-                              <Checkbox
-                                checked={selectedDays.includes(day)}
-                                onCheckedChange={(checked) => handleDayChange(day, checked as boolean)}
-                              />
-                              <span className="text-sm text-dark-text">{day}</span>
-                            </label>
-                          ))}
+                    <div className="space-y-6">
+                      {['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'].map((day) => (
+                        <div key={day} className="space-y-3">
+                          <label className="flex items-center space-x-3">
+                            <Checkbox
+                              checked={day in selectedSchedule}
+                              onCheckedChange={(checked) => handleDayToggle(day, checked as boolean)}
+                            />
+                            <span className="font-medium text-dark-text">{day}</span>
+                          </label>
+                          
+                          {day in selectedSchedule && (
+                            <div className="ml-6 p-4 bg-gray-50 rounded-lg animate-fade-in">
+                              <Label className="text-sm text-gray-600 mb-2 block">Удобное время в {day.toLowerCase()}:</Label>
+                              <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-32 overflow-y-auto">
+                                {timeSlots.map((time) => (
+                                  <label key={time} className="flex items-center space-x-2">
+                                    <Checkbox
+                                      checked={selectedSchedule[day]?.includes(time) || false}
+                                      onCheckedChange={(checked) => handleTimeToggle(day, time, checked as boolean)}
+                                    />
+                                    <span className="text-sm text-dark-text">{time}</span>
+                                  </label>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      </div>
-                      
-                      <div>
-                        <Label className="text-sm text-gray-600 mb-2 block">Удобное время:</Label>
-                        <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-32 overflow-y-auto">
-                          {timeSlots.map((time) => (
-                            <label key={time} className="flex items-center space-x-2">
-                              <Checkbox
-                                checked={selectedTimes.includes(time)}
-                                onCheckedChange={(checked) => handleTimeChange(time, checked as boolean)}
-                              />
-                              <span className="text-sm text-dark-text">{time}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
 
