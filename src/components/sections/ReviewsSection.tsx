@@ -37,29 +37,29 @@ const ReviewsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-12 md:py-20 px-4 bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-inter font-bold text-dark-text mb-4">Отзывы</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-inter font-bold text-dark-text mb-4">Отзывы</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             Что говорят ученики и родители о занятиях
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {reviews.map((review, index) => (
             <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-up">
-              <CardContent className="p-6">
+              <CardContent className="p-4 md:p-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-vibrant-purple to-success-green rounded-full flex items-center justify-center text-white font-bold">
                     {review.name[0]}
                   </div>
                   <div className="ml-3">
-                    <div className="font-inter font-semibold text-dark-text">{review.name}</div>
-                    <div className="text-sm text-gray-500">{review.role}</div>
+                    <div className="font-inter font-semibold text-dark-text text-sm sm:text-base">{review.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-500">{review.role}</div>
                   </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed italic">"{review.text}"</p>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed italic">"{review.text}"</p>
                 <div className="flex text-yellow-400 mt-4">
                   {[...Array(5)].map((_, i) => (
                     <Icon key={i} name="Star" size={16} className="fill-current" />

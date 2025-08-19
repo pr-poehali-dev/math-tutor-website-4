@@ -7,13 +7,13 @@ const Navigation = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-100">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-inter font-bold text-vibrant-purple">
+      <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+        <div className="text-xl sm:text-2xl font-inter font-bold text-vibrant-purple"
           МатемАтик 🧮
         </div>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden lg:flex space-x-6 xl:space-x-8">
           <a href="#lessons" className="text-dark-text hover:text-vibrant-purple transition-colors">О занятиях</a>
           <a href="#teacher" className="text-dark-text hover:text-vibrant-purple transition-colors">О преподавателе</a>
           <a href="#program" className="text-dark-text hover:text-vibrant-purple transition-colors">Программа</a>
@@ -22,7 +22,7 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Contact Button */}
-        <Button className="hidden md:flex bg-vibrant-purple hover:bg-purple-700">
+        <Button className="hidden lg:flex bg-vibrant-purple hover:bg-purple-700 text-sm xl:text-base">
           <Icon name="Phone" size={16} />
           Связаться
         </Button>
@@ -30,7 +30,7 @@ const Navigation = () => {
         {/* Mobile Menu Button */}
         <Button
           variant="ghost"
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={24} />

@@ -41,11 +41,11 @@ const BookingForm = () => {
   });
 
   return (
-    <section id="booking" className="py-20 px-4 bg-gradient-to-br from-vibrant-purple via-purple-600 to-success-green text-white">
+    <section id="booking" className="py-12 md:py-20 px-4 bg-gradient-to-br from-vibrant-purple via-purple-600 to-success-green text-white">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-inter font-bold mb-4">Записаться на занятие</h2>
-          <p className="text-xl text-purple-100 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-inter font-bold mb-4">Записаться на занятие</h2>
+          <p className="text-base sm:text-lg md:text-xl text-purple-100 max-w-2xl mx-auto px-2">
             Заполните форму, и я свяжусь с вами в течение дня
           </p>
         </div>

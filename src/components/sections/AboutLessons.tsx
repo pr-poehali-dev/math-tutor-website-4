@@ -5,25 +5,25 @@ import Icon from '@/components/ui/icon';
 
 const AboutLessons = () => {
   return (
-    <section id="lessons" className="py-20 px-4 bg-white">
+    <section id="lessons" className="py-12 md:py-20 px-4 bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-inter font-bold text-dark-text mb-4">О занятиях</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-inter font-bold text-dark-text mb-4">О занятиях</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             Современный подход к изучению математики с персональным кабинетом и автоматической проверкой
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-vibrant-purple/20">
             <CardHeader className="text-center pb-4">
               <div className="w-16 h-16 bg-vibrant-purple/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-vibrant-purple/20 transition-colors">
                 <Icon name="Clock" size={32} className="text-vibrant-purple" />
               </div>
-              <CardTitle className="text-xl font-inter">Удобное расписание</CardTitle>
+              <CardTitle className="text-lg sm:text-xl font-inter">Удобное расписание</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-gray-600 mb-4">Занятия 60-75 минут, 2 раза в неделю + 1 бесплатное дополнительное</p>
+              <p className="text-sm sm:text-base text-gray-600 mb-4">Занятия 60-75 минут, 2 раза в неделю + 1 бесплатное дополнительное</p>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span>Основные занятия:</span>
@@ -84,7 +84,7 @@ const AboutLessons = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-purple-500/20 lg:col-span-2">
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-purple-500/20 md:col-span-2 lg:col-span-2">
             <CardHeader className="text-center pb-4">
               <div className="w-16 h-16 bg-purple-100 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-purple-200 transition-colors">
                 <Icon name="Computer" size={32} className="text-purple-600" />
@@ -92,7 +92,7 @@ const AboutLessons = () => {
               <CardTitle className="text-xl font-inter">Личный кабинет ученика</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <Icon name="FileText" size={20} className="text-vibrant-purple" />
