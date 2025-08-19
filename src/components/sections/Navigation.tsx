@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-100">
       <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
-        <div className="text-xl sm:text-2xl font-inter font-bold text-vibrant-purple"
+        <div className="text-xl sm:text-2xl font-inter font-bold text-vibrant-purple">
           МатемАтик 🧮
         </div>
         
