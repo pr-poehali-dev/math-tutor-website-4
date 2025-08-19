@@ -281,12 +281,12 @@ const Index = () => {
                 <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
                   <Icon name="Users" size={32} className="text-success-green" />
                 </div>
-                <CardTitle className="text-xl font-inter">Малые группы</CardTitle>
+                <CardTitle className="text-xl font-inter">Группы</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-600 mb-4">8-12 учеников одного уровня знаний</p>
                 <Badge variant="outline" className="border-success-green text-success-green">
-                  Индивидуальный подход
+                  Одинаковый уровень
                 </Badge>
               </CardContent>
             </Card>
@@ -305,6 +305,21 @@ const Index = () => {
                   <div className="font-bold">🎁 Бонус 5000₽</div>
                   <div className="text-sm">за пятерку на ОГЭ!</div>
                 </div>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-blue-500/20">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                  <Icon name="MessageCircle" size={32} className="text-blue-600" />
+                </div>
+                <CardTitle className="text-xl font-inter">Поддержка вне занятий</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4">Всегда на связи! Ученик может задавать вопросы и получать ответы от меня или моего помощника в любое время.</p>
+                <Badge variant="outline" className="border-blue-600 text-blue-600">
+                  24/7 поддержка
+                </Badge>
               </CardContent>
             </Card>
 
@@ -336,10 +351,7 @@ const Index = () => {
                       <Icon name="CheckCircle" size={20} className="text-purple-600" />
                       <span>Автоматическая проверка</span>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <Icon name="MessageCircle" size={20} className="text-blue-600" />
-                      <span>Всегда на связи</span>
-                    </div>
+
                     <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-lg text-center">
                       <Icon name="Play" size={24} className="mx-auto mb-2" />
                       <div className="text-sm font-medium">Место для видео о личном кабинете</div>
