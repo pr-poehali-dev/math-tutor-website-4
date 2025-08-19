@@ -63,9 +63,7 @@ const ProgramSection = () => {
                 <Icon name="BookOpen" size={28} className="mr-3" />
                 Основные занятия
               </CardTitle>
-              <CardDescription className="text-purple-100">
-                52 темы программы ОГЭ по математике
-              </CardDescription>
+              <CardDescription className="text-purple-100">59 темы программы ОГЭ по математике</CardDescription>
             </CardHeader>
             <CardContent className="p-6 max-h-96 overflow-y-auto">
               <div className="space-y-3">
