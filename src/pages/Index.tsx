@@ -625,10 +625,33 @@ const Index = () => {
           <div className="max-w-2xl mx-auto">
             <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
               <CardContent className="p-8">
-                <form className="space-y-6">
+                <form action="https://formspree.io/f/manbgwqw" method="POST" className="space-y-6">
+                  <div>
+                    <Label htmlFor="name" className="text-dark-text font-medium">Как к вам обращаться? *</Label>
+                    <Input 
+                      id="name" 
+                      name="name"
+                      placeholder="Введите ваше имя..." 
+                      className="mt-2"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="phone" className="text-dark-text font-medium">Телефон для связи *</Label>
+                    <Input 
+                      id="phone" 
+                      name="phone"
+                      type="tel"
+                      placeholder="+7 (___) ___-__-__" 
+                      className="mt-2"
+                      required
+                    />
+                  </div>
+
                   <div>
                     <Label htmlFor="role" className="text-dark-text font-medium">Кто вы? *</Label>
-                    <Select>
+                    <Select name="role">
                       <SelectTrigger className="mt-2">
                         <SelectValue placeholder="Выберите..." />
                       </SelectTrigger>
@@ -641,7 +664,7 @@ const Index = () => {
 
                   <div>
                     <Label htmlFor="grade" className="text-dark-text font-medium">Какой класс? *</Label>
-                    <Select>
+                    <Select name="grade">
                       <SelectTrigger className="mt-2">
                         <SelectValue placeholder="Выберите класс..." />
                       </SelectTrigger>
@@ -656,6 +679,7 @@ const Index = () => {
                     <Label htmlFor="city" className="text-dark-text font-medium">Из какого вы города? *</Label>
                     <Input 
                       id="city" 
+                      name="city"
                       placeholder="Введите ваш город..." 
                       className="mt-2"
                     />
@@ -699,10 +723,18 @@ const Index = () => {
                     <Label htmlFor="goals" className="text-dark-text font-medium">Расскажите подробнее о своих целях</Label>
                     <Textarea 
                       id="goals"
+                      name="goals"
                       placeholder="Что вы хотите получить от занятий? Какой уровень подготовки сейчас? Есть ли особые пожелания?"
                       className="mt-2 min-h-[100px]"
                     />
                   </div>
+
+                  {/* Скрытое поле для передачи данных о расписании */}
+                  <input
+                    type="hidden"
+                    name="schedule"
+                    value={JSON.stringify(selectedSchedule)}
+                  />
 
                   <Button 
                     type="submit" 
