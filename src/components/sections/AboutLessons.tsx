@@ -113,10 +113,15 @@ const AboutLessons = () => {
                     <span>Автоматическая проверка</span>
                   </div>
 
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-lg text-center">
+                  <a 
+                    href="https://rutube.ru/video/cfb42cc4773d23d9d9376a43f1e11e79/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-lg text-center hover:from-blue-600 hover:to-purple-700 transition-colors cursor-pointer"
+                  >
                     <Icon name="Play" size={24} className="mx-auto mb-2" />
                     <div className="text-sm font-medium">как им пользоваться</div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </CardContent>
