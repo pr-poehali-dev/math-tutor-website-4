@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,23 @@ import Icon from '@/components/ui/icon';
 
 const BookingForm = () => {
   const [selectedSchedule, setSelectedSchedule] = useState<Record<string, string[]>>({});
+  const [cityInput, setCityInput] = useState('');
+  const [showCitySuggestions, setShowCitySuggestions] = useState(false);
+  const [filteredCities, setFilteredCities] = useState<string[]>([]);
+  const cityInputRef = useRef<HTMLInputElement>(null);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+
+  const cities = [
+    'Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Казань',
+    'Нижний Новгород', 'Челябинск', 'Самара', 'Омск', 'Ростов-на-Дону',
+    'Уфа', 'Красноярск', 'Воронеж', 'Пермь', 'Волгоград', 'Краснодар',
+    'Саратов', 'Тюмень', 'Тольятти', 'Ижевск', 'Барнаул', 'Ульяновск',
+    'Иркутск', 'Хабаровск', 'Ярославль', 'Владивосток', 'Махачкала',
+    'Томск', 'Оренбург', 'Кемерово', 'Новокузнецк', 'Рязань', 'Астрахань',
+    'Пенза', 'Липецк', 'Тула', 'Киров', 'Чебоксары', 'Калининград',
+    'Брянск', 'Курск', 'Иваново', 'Магнитогорск', 'Тверь', 'Ставрополь',
+    'Сочи', 'Белгород', 'Симферополь', 'Севастополь', 'Владимир', 'Архангельск'
+  ];
 
   const handleDayToggle = (day: string, checked: boolean) => {
     if (checked) {
@@ -39,6 +56,40 @@ const BookingForm = () => {
     const hour = 7 + i;
     return `${hour}:00`;
   });
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        cityInputRef.current && !cityInputRef.current.contains(event.target as Node) &&
+        suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)
+      ) {
+        setShowCitySuggestions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleCityInputChange = (value: string) => {
+    setCityInput(value);
+    if (value.length > 0) {
+      const filtered = cities.filter(city => 
+        city.toLowerCase().startsWith(value.toLowerCase())
+      ).slice(0, 5);
+      setFilteredCities(filtered);
+      setShowCitySuggestions(filtered.length > 0);
+    } else {
+      setShowCitySuggestions(false);
+      setFilteredCities([]);
+    }
+  };
+
+  const handleCitySelect = (city: string) => {
+    setCityInput(city);
+    setShowCitySuggestions(false);
+    setFilteredCities([]);
+  };
 
   return (
     <section id="booking" className="py-12 md:py-20 px-4 bg-gradient-to-br from-vibrant-purple via-purple-600 to-success-green text-white">
@@ -103,14 +154,40 @@ const BookingForm = () => {
                   </Select>
                 </div>
 
-                <div>
+                <div className="relative">
                   <Label htmlFor="city" className="text-dark-text font-medium">Из какого вы города? *</Label>
                   <Input 
+                    ref={cityInputRef}
                     id="city" 
                     name="city"
+                    value={cityInput}
+                    onChange={(e) => handleCityInputChange(e.target.value)}
+                    onFocus={() => {
+                      if (cityInput.length > 0 && filteredCities.length > 0) {
+                        setShowCitySuggestions(true);
+                      }
+                    }}
                     placeholder="Введите ваш город..." 
                     className="mt-2"
+                    required
+                    autoComplete="off"
                   />
+                  {showCitySuggestions && filteredCities.length > 0 && (
+                    <div 
+                      ref={suggestionsRef}
+                      className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto"
+                    >
+                      {filteredCities.map((city, index) => (
+                        <div
+                          key={city}
+                          onClick={() => handleCitySelect(city)}
+                          className="px-4 py-2 hover:bg-gray-50 cursor-pointer text-dark-text border-b border-gray-100 last:border-b-0"
+                        >
+                          {city}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div>
