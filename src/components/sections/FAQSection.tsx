@@ -80,6 +80,72 @@ const FAQSection = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
+
+            <AccordionItem value="item-6" className="bg-white rounded-lg shadow-sm border-0">
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="font-inter font-semibold">Что делать, если ребенок не может прийти на занятие?</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Если ребенок не будет присутствовать на уроке, он всегда может посмотреть в любое время запись урока, на котором он не присутствовал. Но это совсем не значит, что на уроки можно не ходить! На уроке надо быть, так как ученик может всегда сказать, что ему не понятно и я это разберу более подробно.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7" className="bg-white rounded-lg shadow-sm border-0">
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="font-inter font-semibold">Что делать, если ученик не смог решить домашнее задание?</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Если ваш ребенок не смог выполнить ДЗ, то вероятнее всего и остальные ученики тоже не справились. У меня есть отчеты, которые показывают в процентном соотношении выполнение задания у учеников. Так что я всегда знаю, с чем трудности у учеников и на уроке мы сделаем работу над ошибками. Также после выполнения задания у ученика отображается верное решение каждого задания, благодаря чему он сможет найти в чем у него ошибка.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8" className="bg-white rounded-lg shadow-sm border-0">
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="font-inter font-semibold">Сколько длится занятие по времени?</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Основная часть занятия длится 60 минут, после этого я выделяю 15 минут на вопросы учеников или же продолжаю рассказывать тему, если мне не хватило часа.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-9" className="bg-white rounded-lg shadow-sm border-0">
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="font-inter font-semibold">Что происходит на бесплатных дополнительных занятиях?</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Мы смотрим, как математика пригождается в жизни, я рассказываю, под каким историческим влиянием появилась та или иная тема, более глубоко разбираем математику или же просто дополнительно нарешиваем задания из ОГЭ!
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-10" className="bg-white rounded-lg shadow-sm border-0">
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="font-inter font-semibold">Когда начинаются занятия?</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Занятия ориентировочно начинаются 14 сентября. К этому времени ученик как раз уже вольется в учебный процесс и не будет нагружен со всех сторон 1 сентября и школой, и репетиторами.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-11" className="bg-white rounded-lg shadow-sm border-0">
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="font-inter font-semibold">Как получить 5 тысяч рублей?</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Все просто: записываетесь ко мне на занятия, пишете ОГЭ на пять и деньги ваши! На эти деньги ученик сможет купить себе подарок или же просто организовать праздник в честь успешной сдачи ОГЭ!
+                </p>
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </div>
