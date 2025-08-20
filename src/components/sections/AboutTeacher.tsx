@@ -21,10 +21,7 @@ const AboutTeacher = () => {
           <div className="lg:w-1/2">
             <h2 className="text-4xl font-inter font-bold text-dark-text mb-6">О преподавателе</h2>
             <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Меня зовут <span className="font-semibold text-vibrant-purple">Илья</span>, я студент ДВФУ, 
-                изучаю педагогику с акцентом на математику и информатику.
-              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">Меня зовут Илья, я студент ДВФУ, получаю педагогическое образование по профилю математика и информатика</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3">
                   <Icon name="GraduationCap" size={24} className="text-vibrant-purple" />
@@ -40,7 +37,7 @@ const AboutTeacher = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Icon name="Heart" size={24} className="text-pink-500" />
-                  <span>Молодой подход</span>
+                  <span>Молодой преподаватель </span>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-2xl shadow-lg">
@@ -48,15 +45,15 @@ const AboutTeacher = () => {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-center space-x-2">
                     <Icon name="CheckCircle" size={16} className="text-success-green" />
-                    <span>Нахожу подход к каждому ученику</span>
+                    <span>Показываю, как применяется математика в жизни</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <Icon name="CheckCircle" size={16} className="text-success-green" />
-                    <span>Объясняю сложное простыми словами</span>
+                    <span>Рассказываю, под каким историческим влиянием обществу</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <Icon name="CheckCircle" size={16} className="text-success-green" />
-                    <span>Создаю комфортную атмосферу на уроках</span>
+                    <span>Учу не подставлять циферки в формулу, а выводить их</span>
                   </li>
                 </ul>
               </div>
