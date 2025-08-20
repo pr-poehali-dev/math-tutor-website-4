@@ -142,7 +142,7 @@ const AboutLessons = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-yellow-500/20 bg-gradient-to-br from-yellow-50 to-orange-50">
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-yellow-500/20 bg-gradient-to-br from-yellow-50 to-orange-50 md:col-span-2 lg:col-span-1">
             <CardHeader className="text-center pb-4">
               <div className="w-16 h-16 bg-yellow-100 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
                 <Icon name="Trophy" size={32} className="text-yellow-600" />
