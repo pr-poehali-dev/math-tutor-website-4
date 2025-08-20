@@ -1,7 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+
+const VideoModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <button 
+        onClick={() => setIsOpen(true)}
+        className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-lg text-center hover:from-blue-600 hover:to-purple-700 transition-colors cursor-pointer w-full"
+      >
+        <Icon name="Play" size={24} className="mx-auto mb-2" />
+        <div className="text-sm font-medium">как им пользоваться</div>
+      </button>
+
+      {isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="text-lg font-semibold">Как пользоваться личным кабинетом</h3>
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="text-gray-500 hover:text-gray-700 text-xl"
+              >
+                <Icon name="X" size={24} />
+              </button>
+            </div>
+            <div className="p-4">
+              <iframe 
+                width="100%" 
+                height="405" 
+                src="https://rutube.ru/play/embed/cfb42cc4773d23d9d9376a43f1e11e79/" 
+                frameBorder="0" 
+                allow="clipboard-write; autoplay" 
+                allowFullScreen
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 const AboutLessons = () => {
   return (
@@ -113,15 +156,7 @@ const AboutLessons = () => {
                     <span>Автоматическая проверка</span>
                   </div>
 
-                  <a 
-                    href="https://rutube.ru/video/cfb42cc4773d23d9d9376a43f1e11e79/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-lg text-center hover:from-blue-600 hover:to-purple-700 transition-colors cursor-pointer"
-                  >
-                    <Icon name="Play" size={24} className="mx-auto mb-2" />
-                    <div className="text-sm font-medium">как им пользоваться</div>
-                  </a>
+                  <VideoModal />
                 </div>
               </div>
             </CardContent>
