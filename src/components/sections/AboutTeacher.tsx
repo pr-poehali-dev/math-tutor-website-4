@@ -49,7 +49,7 @@ const AboutTeacher = () => {
                   </li>
                   <li className="flex items-center space-x-2">
                     <Icon name="CheckCircle" size={24} className="text-success-green" />
-                    <span>Рассказываю, под каким историческим влиянием обществу</span>
+                    <span>Рассказываю, под каким историческим влиянием обществу стало необходимо то или иное математическое знание</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <Icon name="CheckCircle" size={24} className="text-success-green" />
