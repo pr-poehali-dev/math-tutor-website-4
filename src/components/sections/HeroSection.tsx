@@ -18,7 +18,7 @@ const HeroSection = () => {
               {" "}страха
             </span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed px-2">Готовлю к ОГЭ с гарантией результата! Получи пятерку на экзамене — получи 5000 рублей! 🎉</p>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed px-2">Не просто готовлю к ОГЭ, а самое главное-учу мыслить!</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
