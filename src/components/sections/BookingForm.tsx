@@ -129,7 +129,7 @@ const BookingForm = () => {
                         {day in selectedSchedule && (
                           <div className="ml-6 p-4 bg-gray-50 rounded-lg animate-fade-in">
                             <Label className="text-sm text-gray-600 mb-2 block">Удобное время в {day.toLowerCase()}:</Label>
-                            <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-32 overflow-y-auto">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-h-40 overflow-y-auto">
                               {timeSlots.map((time) => (
                                 <label key={time} className="flex items-center space-x-2">
                                   <Checkbox
