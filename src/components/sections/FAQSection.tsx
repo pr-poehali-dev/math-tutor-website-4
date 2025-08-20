@@ -16,7 +16,7 @@ const FAQSection = () => {
           {/* Группа: Организация занятий */}
           <div className="mb-8">
             <h3 className="text-xl font-inter font-semibold text-dark-text mb-4 text-center">📚 Организация занятий</h3>
-            <Accordion type="multiple" className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3">
               <AccordionItem value="item-1" className="bg-white rounded-lg shadow-sm border-0">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                   <span className="font-inter font-semibold">Сколько длится занятие по времени?</span>
@@ -179,7 +179,7 @@ const FAQSection = () => {
           {/* Группа: Запись и начало обучения */}
           <div className="mb-8">
             <h3 className="text-xl font-inter font-semibold text-dark-text mb-4 text-center">📝 Запись и начало обучения</h3>
-            <Accordion type="multiple" className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3">
               <AccordionItem value="item-5" className="bg-white rounded-lg shadow-sm border-0">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                   <span className="font-inter font-semibold">Как происходит запись на занятия?</span>
@@ -247,7 +247,7 @@ const FAQSection = () => {
           {/* Группа: Учебный процесс */}
           <div className="mb-8">
             <h3 className="text-xl font-inter font-semibold text-dark-text mb-4 text-center">📚 Учебный процесс</h3>
-            <Accordion type="multiple" className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3">
               <AccordionItem value="item-8" className="bg-white rounded-lg shadow-sm border-0">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                   <span className="font-inter font-semibold">Как пользоваться личным кабинетом?</span>
@@ -320,7 +320,7 @@ const FAQSection = () => {
           {/* Группа: Оплата и гарантии */}
           <div className="mb-8">
             <h3 className="text-xl font-inter font-semibold text-dark-text mb-4 text-center">💰 Оплата и гарантии</h3>
-            <Accordion type="multiple" className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3">
               <AccordionItem value="item-10" className="bg-white rounded-lg shadow-sm border-0">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                   <span className="font-inter font-semibold">Как происходит оплата?</span>
