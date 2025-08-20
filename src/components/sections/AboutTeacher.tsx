@@ -33,7 +33,7 @@ const AboutTeacher = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Icon name="Monitor" size={24} className="text-motivation-red" />
-                  <span>Информатика</span>
+                  <span>Преподаю третий год</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Icon name="Heart" size={24} className="text-pink-500" />
