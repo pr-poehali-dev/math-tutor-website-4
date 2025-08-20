@@ -69,6 +69,23 @@ const ReviewsSection = () => {
             </Card>
           ))}
         </div>
+        
+        <div className="text-center mt-8 md:mt-12">
+          <div className="bg-gray-50 rounded-xl p-6 max-w-md mx-auto">
+            <p className="text-gray-600 mb-4 text-sm md:text-base">
+              Больше отзывов в моем профиле на Авито
+            </p>
+            <a 
+              href="https://www.avito.ru/user/155c8c7b68f029d55e8fd73fe762f0ff/profile?src=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-vibrant-purple to-success-green text-white px-6 py-3 rounded-lg hover:from-purple-700 hover:to-green-600 transition-colors text-sm md:text-base font-medium"
+            >
+              <Icon name="ExternalLink" size={20} />
+              <span>Смотреть на Авито</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
