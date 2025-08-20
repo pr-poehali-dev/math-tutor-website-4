@@ -141,6 +141,29 @@ const AboutLessons = () => {
               </Badge>
             </CardContent>
           </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-yellow-500/20 bg-gradient-to-br from-yellow-50 to-orange-50">
+            <CardHeader className="text-center pb-4">
+              <div className="w-16 h-16 bg-yellow-100 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
+                <Icon name="Trophy" size={32} className="text-yellow-600" />
+              </div>
+              <CardTitle className="text-xl font-inter text-orange-800">Денежный приз!</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <div className="space-y-3">
+                <div className="text-2xl font-bold text-yellow-600">5000₽</div>
+                <p className="text-gray-700 font-semibold">Получил пятёрку на экзамене — получил пять тысяч рублей!</p>
+                <div className="bg-white/70 p-3 rounded-lg">
+                  <p className="text-sm text-gray-600">Эти деньги ученик с удовольствием сможет потратить на организацию праздника в честь отличной сдачи экзамена!</p>
+                </div>
+                <div className="flex justify-center space-x-2 text-2xl">
+                  <span>🎉</span>
+                  <span>🎁</span>
+                  <span>🏆</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
