@@ -44,15 +44,15 @@ const AboutTeacher = () => {
                 <h3 className="font-inter font-semibold text-lg mb-3 text-dark-text">Мой подход:</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-center space-x-2">
-                    <Icon name="CheckCircle" size={16} className="text-success-green" />
+                    <Icon name="CheckCircle" size={24} className="text-success-green" />
                     <span>Показываю, как применяется математика в жизни</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <Icon name="CheckCircle" size={16} className="text-success-green" />
+                    <Icon name="CheckCircle" size={24} className="text-success-green" />
                     <span>Рассказываю, под каким историческим влиянием обществу</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <Icon name="CheckCircle" size={16} className="text-success-green" />
+                    <Icon name="CheckCircle" size={24} className="text-success-green" />
                     <span>Учу не подставлять циферки в формулу, а выводить их</span>
                   </li>
                 </ul>
