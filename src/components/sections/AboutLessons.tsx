@@ -150,13 +150,13 @@ const AboutLessons = () => {
               <CardTitle className="text-xl font-inter text-orange-800">Денежный приз!</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="text-2xl font-bold text-yellow-600">5000₽</div>
                 <p className="text-gray-700 font-semibold">Получил пятёрку на экзамене — получил пять тысяч рублей!</p>
-                <div className="bg-white/70 p-3 rounded-lg">
+                <div className="bg-white/70 p-2 rounded-lg">
                   <p className="text-sm text-gray-600">Эти деньги ученик с удовольствием сможет потратить на организацию праздника в честь отличной сдачи экзамена!</p>
                 </div>
-                <div className="flex justify-center space-x-2 text-2xl">
+                <div className="flex justify-center space-x-2 text-xl">
                   <span>🎉</span>
                   <span>🎁</span>
                   <span>🏆</span>
