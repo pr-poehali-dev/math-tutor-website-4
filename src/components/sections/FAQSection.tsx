@@ -13,7 +13,7 @@ const FAQSection = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="multiple" className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-white rounded-lg shadow-sm border-0">
               <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                 <span className="font-inter font-semibold">Сколько длится занятие по времени?</span>
