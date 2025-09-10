@@ -3,6 +3,7 @@ import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutLessons from '@/components/sections/AboutLessons';
 import AboutTeacher from '@/components/sections/AboutTeacher';
+import CertificatesSection from '@/components/sections/CertificatesSection';
 import ProgramSection from '@/components/sections/ProgramSection';
 import FAQSection from '@/components/sections/FAQSection';
 import ReviewsSection from '@/components/sections/ReviewsSection';
@@ -127,6 +128,7 @@ const Index = () => {
       <HeroSection />
       <AboutLessons />
       <AboutTeacher />
+      <CertificatesSection />
       <ProgramSection 
         mainProgram={mainProgram}
         bonusTopics={bonusTopics}
