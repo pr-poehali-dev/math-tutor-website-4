@@ -7,14 +7,13 @@ const AboutTeacher = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
-            <div className="w-80 h-80 bg-gradient-to-br from-vibrant-purple to-success-green rounded-full mx-auto flex items-center justify-center">
-              <div className="w-72 h-72 bg-white rounded-full flex items-center justify-center">
-                <div className="text-6xl">👨‍🏫</div>
-              </div>
-            </div>
-            <div className="text-center mt-6">
-              <div className="bg-white px-4 py-2 rounded-full inline-block text-sm text-gray-600">
-                📸 Место для фотографии Ильи
+            <div className="w-80 h-80 bg-gradient-to-br from-vibrant-purple to-success-green rounded-full mx-auto flex items-center justify-center p-2">
+              <div className="w-full h-full bg-white rounded-full overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/files/74597062-9148-4543-8bc2-d17ddf9dd776.JPG" 
+                  alt="Илья - преподаватель математики"
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
             </div>
           </div>
