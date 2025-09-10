@@ -32,10 +32,12 @@ const AboutTeacher = () => {
                     key={index}
                     src={photo} 
                     alt={`Илья - преподаватель математики ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ${
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === currentPhotoIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    style={{ objectPosition: 'center 20%' }}
+                    } ${index === 2 ? 'scale-125' : ''}`}
+                    style={{ 
+                      objectPosition: index === 2 ? 'center 15%' : 'center 20%'
+                    }}
                   />
                 ))}
               </div>
