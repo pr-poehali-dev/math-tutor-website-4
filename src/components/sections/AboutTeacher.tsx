@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from '@/components/ui/icon';
 
 const AboutTeacher = () => {
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  
+  const photos = [
+    "https://cdn.poehali.dev/files/8a3fe9ba-1f92-49c0-b7f9-df6b423ec1d0.JPG",
+    "https://cdn.poehali.dev/files/b93b48b5-c536-4bc6-9ee9-90804c51e14d.JPG", 
+    "https://cdn.poehali.dev/files/465c6b8c-281d-4b69-b513-27c4172c1600.JPG"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhotoIndex((prevIndex) => 
+        prevIndex === photos.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [photos.length]);
+
   return (
     <section id="teacher" className="py-20 px-4 bg-gradient-to-r from-purple-50 to-blue-50">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
             <div className="w-80 h-80 bg-gradient-to-br from-vibrant-purple to-success-green rounded-full mx-auto flex items-center justify-center p-2">
-              <div className="w-full h-full bg-white rounded-full overflow-hidden">
-                <img 
-                  src="https://cdn.poehali.dev/files/74597062-9148-4543-8bc2-d17ddf9dd776.JPG" 
-                  alt="Илья - преподаватель математики"
-                  className="w-full h-full object-cover object-center"
-                />
+              <div className="w-full h-full bg-white rounded-full overflow-hidden relative">
+                {photos.map((photo, index) => (
+                  <img 
+                    key={index}
+                    src={photo} 
+                    alt={`Илья - преподаватель математики ${index + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ${
+                      index === currentPhotoIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ objectPosition: 'center 20%' }}
+                  />
+                ))}
               </div>
             </div>
           </div>
