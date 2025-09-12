@@ -199,6 +199,7 @@ const BookingForm = () => {
                       <div key={day} className="space-y-3">
                         <label className="flex items-center space-x-3">
                           <Checkbox
+                            className="h-6 w-6"
                             checked={day in selectedSchedule}
                             onCheckedChange={(checked) => handleDayToggle(day, checked as boolean)}
                           />
