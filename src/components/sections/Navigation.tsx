@@ -17,6 +17,7 @@ const Navigation = () => {
           <a href="#lessons" className="text-dark-text hover:text-vibrant-purple transition-colors">О занятиях</a>
           <a href="#teacher" className="text-dark-text hover:text-vibrant-purple transition-colors">О преподавателе</a>
           <a href="#program" className="text-dark-text hover:text-vibrant-purple transition-colors">Программа</a>
+          <a href="#reviews" className="text-dark-text hover:text-vibrant-purple transition-colors">Отзывы</a>
           <a href="#faq" className="text-dark-text hover:text-vibrant-purple transition-colors">FAQ</a>
           <a href="#booking" className="text-dark-text hover:text-vibrant-purple transition-colors">Записаться</a>
         </div>
@@ -61,6 +62,13 @@ const Navigation = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Программа
+            </a>
+            <a 
+              href="#reviews" 
+              className="block text-dark-text hover:text-vibrant-purple transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Отзывы
             </a>
             <a 
               href="#faq" 
