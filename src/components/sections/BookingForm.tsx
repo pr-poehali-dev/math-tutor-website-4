@@ -100,20 +100,7 @@ const BookingForm = () => {
             Заполните форму, и я свяжусь с вами в течение дня
           </p>
           
-          <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 max-w-lg mx-auto">
-            <p className="text-purple-100 mb-3">
-              Перед записью рекомендуем пройти тест для проверки уровня знаний ученика:
-            </p>
-            <a 
-              href="https://forms.gle/pBY4zG8Ws2rCFCJ68" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-vibrant-purple px-6 py-2 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
-            >
-              <Icon name="ExternalLink" size={18} />
-              Пройти тест на уровень знаний
-            </a>
-          </div>
+
         </div>
 
         <div className="max-w-2xl mx-auto">
