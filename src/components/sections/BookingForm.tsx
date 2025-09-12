@@ -208,15 +208,20 @@ const BookingForm = () => {
                         {day in selectedSchedule && (
                           <div className="ml-6 p-4 bg-gray-50 rounded-lg animate-fade-in">
                             <Label className="text-sm text-gray-600 mb-2 block">Удобное время в {day.toLowerCase()}:</Label>
-                            <div className="grid grid-cols-3 md:grid-cols-4 gap-3 max-h-40 overflow-y-auto">
+                            <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-40 overflow-y-auto">
                               {timeSlots.map((time) => (
-                                <label key={time} className="flex items-center space-x-2">
-                                  <Checkbox
-                                    checked={selectedSchedule[day]?.includes(time) || false}
-                                    onCheckedChange={(checked) => handleTimeToggle(day, time, checked as boolean)}
-                                  />
-                                  <span className="text-sm text-dark-text">{time}</span>
-                                </label>
+                                <button
+                                  key={time}
+                                  type="button"
+                                  onClick={() => handleTimeToggle(day, time, !selectedSchedule[day]?.includes(time))}
+                                  className={`px-3 py-2 text-sm font-medium rounded-md border transition-colors ${
+                                    selectedSchedule[day]?.includes(time)
+                                      ? 'bg-vibrant-purple text-white border-vibrant-purple'
+                                      : 'bg-white text-dark-text border-gray-300 hover:bg-gray-50'
+                                  }`}
+                                >
+                                  {time}
+                                </button>
                               ))}
                             </div>
                           </div>
