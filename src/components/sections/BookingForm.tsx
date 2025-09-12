@@ -214,7 +214,7 @@ const BookingForm = () => {
                                   key={time}
                                   type="button"
                                   onClick={() => handleTimeToggle(day, time, !selectedSchedule[day]?.includes(time))}
-                                  className={`px-3 py-2 text-sm font-medium rounded-md border transition-colors ${
+                                  className={`w-full px-2 py-2 text-sm font-medium rounded-md border transition-colors flex items-center justify-center min-h-[36px] ${
                                     selectedSchedule[day]?.includes(time)
                                       ? 'bg-vibrant-purple text-white border-vibrant-purple'
                                       : 'bg-white text-dark-text border-gray-300 hover:bg-gray-50'
