@@ -29,11 +29,11 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <Button
-          variant="ghost"
-          className="lg:hidden"
+          variant="outline"
+          className="lg:hidden border-2 border-vibrant-purple bg-gradient-to-r from-vibrant-purple/10 to-success-green/10 hover:from-vibrant-purple/20 hover:to-success-green/20 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={24} />
+          <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={24} className="text-vibrant-purple" />
         </Button>
       </div>
 
