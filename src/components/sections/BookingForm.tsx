@@ -13,6 +13,8 @@ const BookingForm = () => {
   const [cityInput, setCityInput] = useState('');
   const [showCitySuggestions, setShowCitySuggestions] = useState(false);
   const [filteredCities, setFilteredCities] = useState<string[]>([]);
+  const [selectedRole, setSelectedRole] = useState('');
+  const [selectedGrade, setSelectedGrade] = useState('');
   const cityInputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
@@ -123,14 +125,25 @@ const BookingForm = () => {
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
-      role: formData.get('role') as string,
-      grade: formData.get('grade') as string,
+      role: selectedRole,
+      grade: selectedGrade,
       city: formData.get('city') as string,
       goals: formData.get('goals') as string,
       schedule: selectedSchedule,
       schedule_vladivostok: convertToVladivostokTime(selectedSchedule),
       user_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     };
+
+    // Проверяем обязательные поля
+    if (!data.name || !data.phone || !data.role || !data.grade || !data.city) {
+      alert('Пожалуйста, заполните все обязательные поля');
+      return;
+    }
+
+    if (Object.keys(selectedSchedule).length === 0) {
+      alert('Пожалуйста, выберите удобное время для занятий');
+      return;
+    }
 
     try {
       const response = await fetch('https://functions.poehali.dev/b6a5de1b-368c-4af4-ba5e-259a790c78dc', {
@@ -146,6 +159,8 @@ const BookingForm = () => {
         e.currentTarget.reset();
         setSelectedSchedule({});
         setCityInput('');
+        setSelectedRole('');
+        setSelectedGrade('');
       } else {
         throw new Error('Ошибка отправки формы');
       }
@@ -196,7 +211,7 @@ const BookingForm = () => {
 
                 <div>
                   <Label htmlFor="role" className="text-dark-text font-medium">Кто вы? *</Label>
-                  <Select name="role">
+                  <Select value={selectedRole} onValueChange={setSelectedRole}>
                     <SelectTrigger className="mt-2">
                       <SelectValue placeholder="Выберите..." />
                     </SelectTrigger>
@@ -209,7 +224,7 @@ const BookingForm = () => {
 
                 <div>
                   <Label htmlFor="grade" className="text-dark-text font-medium">Какой класс? *</Label>
-                  <Select name="grade">
+                  <Select value={selectedGrade} onValueChange={setSelectedGrade}>
                     <SelectTrigger className="mt-2">
                       <SelectValue placeholder="Выберите класс..." />
                     </SelectTrigger>
