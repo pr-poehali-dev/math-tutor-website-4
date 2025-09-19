@@ -123,8 +123,9 @@ const BookingForm = () => {
     
     const formData = new FormData(e.currentTarget);
     
-    // Упрощаем данные для соответствия backend API
+    // Данные для backend API
     const data = {
+      action: 'submit_form',
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
       city: formData.get('city') as string,
@@ -144,7 +145,7 @@ const BookingForm = () => {
     }
 
     try {
-      const response = await fetch('https://functions.poehali.dev/308db714-4e95-4a42-8c2d-f3beba7555af', {
+      const response = await fetch('https://functions.poehali.dev/b1873295-59c4-42be-93aa-dedb9f40de15', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,18 +153,33 @@ const BookingForm = () => {
         body: JSON.stringify(data)
       });
 
+      const responseText = await response.text();
+      
       if (response.ok) {
-        const result = await response.json();
-        alert(`Заявка успешно отправлена! Ваше время во Владивостоке: ${result.data.vladivostok_time}. Дни занятий: ${result.data.lesson_days.join(', ')}.`);
-        e.currentTarget.reset();
-        setSelectedSchedule({});
-        setCityInput('');
-        setSelectedRole('');
-        setSelectedGrade('');
+        try {
+          const result = JSON.parse(responseText);
+          if (result.success) {
+            alert(`Заявка успешно отправлена! Ваше время во Владивостоке: ${result.data.vladivostok_time}. Дни занятий: ${result.data.lesson_days.join(', ')}.`);
+            e.currentTarget.reset();
+            setSelectedSchedule({});
+            setCityInput('');
+            setSelectedRole('');
+            setSelectedGrade('');
+          } else {
+            alert(result.error || 'Произошла ошибка при отправке формы.');
+          }
+        } catch (parseError) {
+          console.error('Parse error:', parseError, 'Response:', responseText);
+          alert('Ошибка обработки ответа сервера. Попробуйте еще раз.');
+        }
       } else {
-        const errorData = await response.json();
-        console.error('Server error response:', errorData);
-        alert(errorData.error || 'Произошла ошибка при отправке формы. Попробуйте еще раз.');
+        try {
+          const errorData = JSON.parse(responseText);
+          alert(errorData.error || `Ошибка сервера (${response.status}). Попробуйте еще раз.`);
+        } catch (parseError) {
+          console.error('Error parsing error response:', parseError, 'Response:', responseText);
+          alert(`Ошибка сервера (${response.status}). Попробуйте еще раз.`);
+        }
       }
     } catch (error) {
       console.error('Form submission error:', error);

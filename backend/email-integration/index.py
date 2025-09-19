@@ -53,7 +53,59 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             body_data = json.loads(event.get('body', '{}'))
             action = body_data.get('action')
             
-            if action == 'send_email':
+            if action == 'submit_form':
+                # Handle form submission from website
+                name = body_data.get('name', '').strip()
+                city = body_data.get('city', '').strip()
+                phone = body_data.get('phone', '').strip()
+                time = body_data.get('time', '').strip()
+                
+                if not all([name, city, phone, time]):
+                    return {
+                        'statusCode': 400,
+                        'headers': {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        },
+                        'body': json.dumps({'error': 'Все поля обязательны для заполнения'})
+                    }
+                
+                # Simple timezone conversion (Moscow +3 to Vladivostok +10 = +7 hours)
+                try:
+                    hour, minute = map(int, time.split(':'))
+                    vlad_hour = (hour + 7) % 24
+                    vladivostok_time = f"{vlad_hour:02d}:{minute:02d}"
+                except:
+                    vladivostok_time = time
+                
+                # Save to database
+                cursor.execute(
+                    "INSERT INTO student_applications (name, city, phone, local_time, vladivostok_time, timezone_offset, lesson_day_1, lesson_day_2) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
+                    (name, city, phone, time, vladivostok_time, 7, 'понедельник', 'среда')
+                )
+                
+                app_id = cursor.fetchone()[0]
+                conn.commit()
+                
+                return {
+                    'statusCode': 200,
+                    'headers': {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    'body': json.dumps({
+                        'success': True,
+                        'message': 'Заявка успешно отправлена!',
+                        'data': {
+                            'id': app_id,
+                            'local_time': time,
+                            'vladivostok_time': vladivostok_time,
+                            'lesson_days': ['понедельник', 'среда']
+                        }
+                    })
+                }
+            
+            elif action == 'send_email':
                 # Send email to client
                 booking_id = body_data.get('booking_id')
                 message_text = body_data.get('message')
