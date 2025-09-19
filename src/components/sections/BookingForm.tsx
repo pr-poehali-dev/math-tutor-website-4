@@ -155,6 +155,7 @@ const BookingForm = () => {
       });
 
       if (response.ok) {
+        const result = await response.json();
         alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
         e.currentTarget.reset();
         setSelectedSchedule({});
@@ -162,11 +163,18 @@ const BookingForm = () => {
         setSelectedRole('');
         setSelectedGrade('');
       } else {
-        throw new Error('Ошибка отправки формы');
+        const errorData = await response.text();
+        console.error('Server error response:', errorData);
+        
+        if (response.status === 402) {
+          alert('Сервис временно недоступен. Пожалуйста, свяжитесь с нами напрямую по телефону.');
+        } else {
+          alert('Произошла ошибка при отправке формы. Попробуйте еще раз.');
+        }
       }
     } catch (error) {
-      alert('Произошла ошибка при отправке формы. Попробуйте еще раз.');
       console.error('Form submission error:', error);
+      alert('Произошла ошибка при отправке формы. Проверьте подключение к интернету и попробуйте еще раз.');
     }
   };
 

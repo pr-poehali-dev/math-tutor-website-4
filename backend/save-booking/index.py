@@ -64,24 +64,35 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'error': 'Database configuration error'})
             }
         
-        # Insert booking into database
+        # Insert booking into database using Simple Query Protocol
         conn = psycopg2.connect(database_url)
         try:
             cursor = conn.cursor()
-            insert_query = """
+            
+            # Escape values for Simple Query Protocol
+            name_escaped = name.replace("'", "''")
+            phone_escaped = phone.replace("'", "''") 
+            role_escaped = role.replace("'", "''")
+            grade_escaped = grade.replace("'", "''")
+            city_escaped = city.replace("'", "''")
+            goals_escaped = goals.replace("'", "''") if goals else ''
+            user_timezone_escaped = user_timezone.replace("'", "''")
+            schedule_json = json.dumps(schedule).replace("'", "''")
+            schedule_vlad_json = json.dumps(schedule_vladivostok).replace("'", "''")
+            
+            insert_query = f"""
                 INSERT INTO bookings (
                     name, phone, role, grade, city, 
                     schedule, schedule_vladivostok, user_timezone, goals
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ) VALUES (
+                    '{name_escaped}', '{phone_escaped}', '{role_escaped}', 
+                    '{grade_escaped}', '{city_escaped}', '{schedule_json}', 
+                    '{schedule_vlad_json}', '{user_timezone_escaped}', '{goals_escaped}'
+                )
                 RETURNING id
             """
             
-            cursor.execute(insert_query, (
-                name, phone, role, grade, city,
-                json.dumps(schedule), json.dumps(schedule_vladivostok),
-                user_timezone, goals
-            ))
-            
+            cursor.execute(insert_query)
             booking_id = cursor.fetchone()[0]
             conn.commit()
             cursor.close()
