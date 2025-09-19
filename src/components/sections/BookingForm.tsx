@@ -157,21 +157,16 @@ const BookingForm = () => {
       const responseText = await response.text();
       
       if (response.ok) {
-        try {
-          const result = JSON.parse(responseText);
-          if (result.success) {
-            alert(`Заявка успешно отправлена! Ваше время во Владивостоке: ${result.data.vladivostok_time}. Дни занятий: ${result.data.lesson_days.join(', ')}.`);
-            e.currentTarget.reset();
-            setSelectedSchedule({});
-            setCityInput('');
-            setSelectedRole('');
-            setSelectedGrade('');
-          } else {
-            alert(result.error || 'Произошла ошибка при отправке формы.');
-          }
-        } catch (parseError) {
-          console.error('Parse error:', parseError, 'Response:', responseText);
-          alert('Ошибка обработки ответа сервера. Попробуйте еще раз.');
+        const result = JSON.parse(responseText);
+        if (result.success) {
+          alert(`Заявка успешно отправлена! Ваше время во Владивостоке: ${result.data.vladivostok_time}. Дни занятий: ${result.data.lesson_days.join(', ')}.`);
+          e.currentTarget.reset();
+          setSelectedSchedule({});
+          setCityInput('');
+          setSelectedRole('');
+          setSelectedGrade('');
+        } else {
+          alert(result.error || 'Произошла ошибка при отправке формы.');
         }
       } else {
         try {
