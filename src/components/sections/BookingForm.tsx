@@ -57,6 +57,31 @@ const BookingForm = () => {
     return `${hour}:00`;
   });
 
+  // Функция для конвертации времени во владивостокский часовой пояс
+  const convertToVladivostokTime = (schedule: Record<string, string[]>) => {
+    const vladivostokSchedule: Record<string, string[]> = {};
+    
+    Object.entries(schedule).forEach(([day, times]) => {
+      vladivostokSchedule[day] = times.map(time => {
+        // Создаем объект Date для текущего времени пользователя
+        const [hours, minutes] = time.split(':').map(Number);
+        const userDate = new Date();
+        userDate.setHours(hours, minutes, 0, 0);
+        
+        // Конвертируем во владивостокское время (UTC+10)
+        const vladivostokTime = new Date(userDate.toLocaleString("en-US", {timeZone: "Asia/Vladivostok"}));
+        
+        return vladivostokTime.toLocaleTimeString('ru-RU', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+      });
+    });
+    
+    return vladivostokSchedule;
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -242,11 +267,21 @@ const BookingForm = () => {
                   />
                 </div>
 
-                {/* Скрытое поле для передачи данных о расписании */}
+                {/* Скрытые поля для передачи данных о расписании */}
                 <input
                   type="hidden"
                   name="schedule"
                   value={JSON.stringify(selectedSchedule)}
+                />
+                <input
+                  type="hidden"
+                  name="schedule_vladivostok"
+                  value={JSON.stringify(convertToVladivostokTime(selectedSchedule))}
+                />
+                <input
+                  type="hidden"
+                  name="user_timezone"
+                  value={Intl.DateTimeFormat().resolvedOptions().timeZone}
                 />
 
                 <Button 
