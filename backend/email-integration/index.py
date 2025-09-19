@@ -59,6 +59,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 city = body_data.get('city', '').strip()
                 phone = body_data.get('phone', '').strip()
                 time = body_data.get('time', '').strip()
+                schedule = body_data.get('schedule', {})
                 
                 if not all([name, city, phone, time]):
                     return {
@@ -78,10 +79,15 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 except:
                     vladivostok_time = time
                 
+                # Get selected days from schedule
+                selected_days = list(schedule.keys()) if schedule else []
+                lesson_day_1 = selected_days[0] if len(selected_days) > 0 else ''
+                lesson_day_2 = selected_days[1] if len(selected_days) > 1 else ''
+                
                 # Save to database
                 cursor.execute(
                     "INSERT INTO student_applications (name, city, phone, local_time, vladivostok_time, timezone_offset, lesson_day_1, lesson_day_2) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
-                    (name, city, phone, time, vladivostok_time, 7, 'понедельник', 'среда')
+                    (name, city, phone, time, vladivostok_time, 7, lesson_day_1, lesson_day_2)
                 )
                 
                 app_id = cursor.fetchone()[0]
@@ -100,7 +106,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                             'id': app_id,
                             'local_time': time,
                             'vladivostok_time': vladivostok_time,
-                            'lesson_days': ['понедельник', 'среда']
+                            'lesson_days': [lesson_day_1, lesson_day_2] if lesson_day_1 and lesson_day_2 else [lesson_day_1] if lesson_day_1 else []
                         }
                     })
                 }

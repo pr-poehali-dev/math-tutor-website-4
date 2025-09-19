@@ -130,7 +130,8 @@ const BookingForm = () => {
       phone: formData.get('phone') as string,
       city: formData.get('city') as string,
       time: Object.keys(selectedSchedule).length > 0 ? 
-        Object.values(selectedSchedule)[0][0] || '18:00' : '18:00' // Берем первое выбранное время
+        Object.values(selectedSchedule)[0][0] || '18:00' : '18:00', // Берем первое выбранное время
+      schedule: selectedSchedule // Передаем полное расписание
     };
 
     // Проверяем обязательные поля
