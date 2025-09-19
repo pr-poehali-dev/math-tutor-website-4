@@ -122,20 +122,18 @@ const BookingForm = () => {
     e.preventDefault();
     
     const formData = new FormData(e.currentTarget);
+    
+    // Упрощаем данные для соответствия backend API
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
-      role: selectedRole,
-      grade: selectedGrade,
       city: formData.get('city') as string,
-      goals: formData.get('goals') as string,
-      schedule: selectedSchedule,
-      schedule_vladivostok: convertToVladivostokTime(selectedSchedule),
-      user_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+      time: Object.keys(selectedSchedule).length > 0 ? 
+        Object.values(selectedSchedule)[0][0] || '18:00' : '18:00' // Берем первое выбранное время
     };
 
     // Проверяем обязательные поля
-    if (!data.name || !data.phone || !data.role || !data.grade || !data.city) {
+    if (!data.name || !data.phone || !data.city) {
       alert('Пожалуйста, заполните все обязательные поля');
       return;
     }
@@ -146,7 +144,7 @@ const BookingForm = () => {
     }
 
     try {
-      const response = await fetch('https://functions.poehali.dev/b6a5de1b-368c-4af4-ba5e-259a790c78dc', {
+      const response = await fetch('https://functions.poehali.dev/308db714-4e95-4a42-8c2d-f3beba7555af', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -156,21 +154,16 @@ const BookingForm = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        alert(`Заявка успешно отправлена! Ваше время во Владивостоке: ${result.data.vladivostok_time}. Дни занятий: ${result.data.lesson_days.join(', ')}.`);
         e.currentTarget.reset();
         setSelectedSchedule({});
         setCityInput('');
         setSelectedRole('');
         setSelectedGrade('');
       } else {
-        const errorData = await response.text();
+        const errorData = await response.json();
         console.error('Server error response:', errorData);
-        
-        if (response.status === 402) {
-          alert('Сервис временно недоступен. Пожалуйста, свяжитесь с нами напрямую по телефону.');
-        } else {
-          alert('Произошла ошибка при отправке формы. Попробуйте еще раз.');
-        }
+        alert(errorData.error || 'Произошла ошибка при отправке формы. Попробуйте еще раз.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
