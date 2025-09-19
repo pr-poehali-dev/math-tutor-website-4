@@ -39,6 +39,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         city = data.get('city', '').strip()
         phone = data.get('phone', '').strip()
         time = data.get('time', '').strip()
+        schedule = data.get('schedule', {})
+        goals = data.get('goals', '').strip()
         
         if not all([name, city, phone, time]):
             return {
@@ -66,9 +68,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 conn = psycopg2.connect(database_url)
                 cur = conn.cursor()
                 
+                # Извлекаем дни занятий из расписания
+                lesson_days = list(schedule.keys()) if schedule else ['понедельник', 'среда']
+                lesson_day_1 = lesson_days[0] if len(lesson_days) > 0 else 'понедельник'
+                lesson_day_2 = lesson_days[1] if len(lesson_days) > 1 else 'среда'
+                
                 cur.execute(
-                    "INSERT INTO student_applications (name, city, phone, local_time, vladivostok_time, timezone_offset, lesson_day_1, lesson_day_2) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
-                    (name, city, phone, time, vladivostok_time, 7, 'понедельник', 'среда')
+                    "INSERT INTO student_applications (name, city, phone, local_time, vladivostok_time, timezone_offset, lesson_day_1, lesson_day_2, selected_schedule, goals) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
+                    (name, city, phone, time, vladivostok_time, 7, lesson_day_1, lesson_day_2, json.dumps(schedule), goals)
                 )
                 
                 app_id = cur.fetchone()[0]

@@ -131,7 +131,8 @@ const BookingForm = () => {
       city: formData.get('city') as string,
       time: Object.keys(selectedSchedule).length > 0 ? 
         Object.values(selectedSchedule)[0][0] || '18:00' : '18:00', // Берем первое выбранное время
-      schedule: selectedSchedule // Передаем полное расписание
+      schedule: selectedSchedule, // Передаем полное расписание
+      goals: formData.get('goals') as string
     };
 
     // Проверяем обязательные поля
@@ -146,7 +147,7 @@ const BookingForm = () => {
     }
 
     try {
-      const response = await fetch('https://functions.poehali.dev/b1873295-59c4-42be-93aa-dedb9f40de15', {
+      const response = await fetch('https://functions.poehali.dev/dd70ffdc-3c0a-4258-9ba6-064f95835ad0', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
