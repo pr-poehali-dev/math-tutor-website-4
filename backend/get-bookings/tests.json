@@ -1,0 +1,27 @@
+{
+  "tests": [
+    {
+      "name": "Test get all bookings",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "bookings": "array",
+        "total": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test get bookings with city filter",
+      "method": "GET",
+      "path": "/?city=Москва",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "bookings": "array"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
