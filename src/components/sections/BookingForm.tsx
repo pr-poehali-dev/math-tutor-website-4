@@ -116,6 +116,45 @@ const BookingForm = () => {
     setFilteredCities([]);
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      phone: formData.get('phone') as string,
+      role: formData.get('role') as string,
+      grade: formData.get('grade') as string,
+      city: formData.get('city') as string,
+      goals: formData.get('goals') as string,
+      schedule: selectedSchedule,
+      schedule_vladivostok: convertToVladivostokTime(selectedSchedule),
+      user_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+    };
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/b6a5de1b-368c-4af4-ba5e-259a790c78dc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        e.currentTarget.reset();
+        setSelectedSchedule({});
+        setCityInput('');
+      } else {
+        throw new Error('Ошибка отправки формы');
+      }
+    } catch (error) {
+      alert('Произошла ошибка при отправке формы. Попробуйте еще раз.');
+      console.error('Form submission error:', error);
+    }
+  };
+
   return (
     <section id="booking" className="py-12 md:py-20 px-4 bg-gradient-to-br from-vibrant-purple via-purple-600 to-success-green text-white">
       <div className="container mx-auto">
@@ -131,7 +170,7 @@ const BookingForm = () => {
         <div className="max-w-2xl mx-auto">
           <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
             <CardContent className="p-8">
-              <form action="https://formspree.io/f/manbgwqw" method="POST" className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-dark-text font-medium">Как к вам обращаться? *</Label>
                   <Input 
@@ -267,22 +306,7 @@ const BookingForm = () => {
                   />
                 </div>
 
-                {/* Скрытые поля для передачи данных о расписании */}
-                <input
-                  type="hidden"
-                  name="schedule"
-                  value={JSON.stringify(selectedSchedule)}
-                />
-                <input
-                  type="hidden"
-                  name="schedule_vladivostok"
-                  value={JSON.stringify(convertToVladivostokTime(selectedSchedule))}
-                />
-                <input
-                  type="hidden"
-                  name="user_timezone"
-                  value={Intl.DateTimeFormat().resolvedOptions().timeZone}
-                />
+
 
                 <Button 
                   type="submit" 

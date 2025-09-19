@@ -1,0 +1,40 @@
+{
+  "tests": [
+    {
+      "name": "Test successful booking creation",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+7 (999) 123-45-67",
+        "role": "parent",
+        "grade": "9",
+        "city": "Москва",
+        "schedule": {"Понедельник": ["10:00", "11:00"]},
+        "schedule_vladivostok": {"Понедельник": ["17:00", "18:00"]},
+        "user_timezone": "Europe/Moscow",
+        "goals": "Подготовка к ОГЭ"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "booking_id": "number",
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
