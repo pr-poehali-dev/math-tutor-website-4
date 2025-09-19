@@ -159,7 +159,7 @@ const BookingForm = () => {
       if (response.ok) {
         const result = JSON.parse(responseText);
         if (result.success) {
-          alert(`Заявка успешно отправлена! Ваше время во Владивостоке: ${result.data.vladivostok_time}. Дни занятий: ${result.data.lesson_days.join(', ')}.`);
+          alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
           e.currentTarget.reset();
           setSelectedSchedule({});
           setCityInput('');
