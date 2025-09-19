@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Send email to client",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "send_email",
+        "booking_id": 1,
+        "message": "Test message",
+        "client_email": "test@example.com"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": "boolean"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Check new emails",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "check_new_emails"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": "boolean"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

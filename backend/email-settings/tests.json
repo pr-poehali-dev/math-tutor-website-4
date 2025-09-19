@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "Get email settings",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "settings": "object"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Save email settings",
+      "method": "PUT",
+      "path": "/",
+      "body": {
+        "smtp_host": "smtp.test.com",
+        "smtp_port": 587,
+        "smtp_user": "test@test.com",
+        "smtp_password": "password",
+        "smtp_secure": true
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
