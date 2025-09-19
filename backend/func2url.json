@@ -1,5 +1,4 @@
 {
-  "admin-bookings": "https://functions.poehali.dev/06c8aa2d-1b5e-4e78-aa26-47c808bcd490",
-  "get-bookings": "https://functions.poehali.dev/7411bd73-f0d1-4d58-a25c-97a056c959ef",
-  "save-booking": "https://functions.poehali.dev/b6a5de1b-368c-4af4-ba5e-259a790c78dc"
+  "email-integration": "https://functions.poehali.dev/b1873295-59c4-42be-93aa-dedb9f40de15",
+  "email-settings": "https://functions.poehali.dev/c88a11c6-f908-41a9-8a36-9539473a3ac3"
 }
