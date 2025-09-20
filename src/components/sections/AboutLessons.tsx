@@ -80,17 +80,18 @@ const AboutLessons = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-success-green/20">
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-motivation-red/20">
             <CardHeader className="text-center pb-4">
-              <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
-                <Icon name="BookOpen" size={32} className="text-success-green" />
+              <div className="w-16 h-16 bg-motivation-red/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-motivation-red/20 transition-colors">
+                <Icon name="Banknote" size={32} className="text-motivation-red" />
               </div>
-              <CardTitle className="text-xl font-inter">Бесплатные групповые занятия</CardTitle>
+              <CardTitle className="text-xl font-inter">Стоимость</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-gray-600 mb-4">Дополнительные занятия, где я рассказываю о применении математики в жизни, истории математических открытий, разбираю задания ОГЭ и отвечаю на вопросы учеников</p>
-              <Badge variant="outline" className="border-success-green text-success-green">
-                Математика в жизни
+              <div className="text-3xl font-bold text-motivation-red mb-2">800₽</div>
+              <p className="text-gray-600 mb-4">за занятие</p>
+              <Badge variant="outline" className="border-motivation-red text-motivation-red">
+                Доступная цена
               </Badge>
             </CardContent>
           </Card>
@@ -125,18 +126,17 @@ const AboutLessons = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-motivation-red/20">
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-success-green/20">
             <CardHeader className="text-center pb-4">
-              <div className="w-16 h-16 bg-motivation-red/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-motivation-red/20 transition-colors">
-                <Icon name="Banknote" size={32} className="text-motivation-red" />
+              <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
+                <Icon name="BookOpen" size={32} className="text-success-green" />
               </div>
-              <CardTitle className="text-xl font-inter">Стоимость</CardTitle>
+              <CardTitle className="text-xl font-inter">Бесплатные групповые занятия</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <div className="text-3xl font-bold text-motivation-red mb-2">800₽</div>
-              <p className="text-gray-600 mb-4">за занятие</p>
-              <Badge variant="outline" className="border-motivation-red text-motivation-red">
-                Доступная цена
+              <p className="text-gray-600 mb-4">Дополнительные занятия, где я рассказываю о применении математики в жизни, истории математических открытий, разбираю задания ОГЭ и отвечаю на вопросы учеников</p>
+              <Badge variant="outline" className="border-success-green text-success-green">
+                Математика в жизни
               </Badge>
             </CardContent>
           </Card>
