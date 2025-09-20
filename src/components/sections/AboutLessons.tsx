@@ -95,6 +95,36 @@ const AboutLessons = () => {
             </CardContent>
           </Card>
 
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-success-green/20">
+            <CardHeader className="text-center pb-4">
+              <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
+                <Icon name="BookOpen" size={32} className="text-success-green" />
+              </div>
+              <CardTitle className="text-xl font-inter">Бесплатные групповые занятия</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-gray-600 mb-4">Дополнительные занятия, где я рассказываю о применении математики в жизни, истории математических открытий, разбираю задания ОГЭ и отвечаю на вопросы учеников</p>
+              <Badge variant="outline" className="border-success-green text-success-green">
+                Математика в жизни
+              </Badge>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-vibrant-purple/20">
+            <CardHeader className="text-center pb-4">
+              <div className="w-16 h-16 bg-vibrant-purple/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-vibrant-purple/20 transition-colors">
+                <Icon name="GraduationCap" size={32} className="text-vibrant-purple" />
+              </div>
+              <CardTitle className="text-xl font-inter">Бесплатные индивидуальные занятия</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-gray-600 mb-4">Персональные занятия с студентами-репетиторами из лучших вузов России. Дополнительная поддержка и разбор сложных тем</p>
+              <Badge variant="outline" className="border-vibrant-purple text-vibrant-purple">
+                Лучшие студенты
+              </Badge>
+            </CardContent>
+          </Card>
+
           <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-motivation-red/20">
             <CardHeader className="text-center pb-4">
               <div className="w-16 h-16 bg-motivation-red/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-motivation-red/20 transition-colors">
@@ -105,10 +135,9 @@ const AboutLessons = () => {
             <CardContent className="text-center">
               <div className="text-3xl font-bold text-motivation-red mb-2">800₽</div>
               <p className="text-gray-600 mb-4">за занятие</p>
-              <div className="bg-gradient-to-r from-success-green to-vibrant-purple text-white p-3 rounded-xl">
-                <div className="font-bold">🎁 Бесплатные занятия</div>
-                <div className="text-sm">в группе и индивидуально</div>
-              </div>
+              <Badge variant="outline" className="border-motivation-red text-motivation-red">
+                Доступная цена
+              </Badge>
             </CardContent>
           </Card>
 
