@@ -83,21 +83,6 @@ const AboutLessons = () => {
           <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-success-green/20">
             <CardHeader className="text-center pb-4">
               <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
-                <Icon name="Users" size={32} className="text-success-green" />
-              </div>
-              <CardTitle className="text-xl font-inter">Группы</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-gray-600 mb-4">8-12 учеников одного уровня знаний</p>
-              <Badge variant="outline" className="border-success-green text-success-green">
-                Одинаковый уровень
-              </Badge>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-success-green/20">
-            <CardHeader className="text-center pb-4">
-              <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
                 <Icon name="BookOpen" size={32} className="text-success-green" />
               </div>
               <CardTitle className="text-xl font-inter">Бесплатные групповые занятия</CardTitle>
@@ -106,6 +91,21 @@ const AboutLessons = () => {
               <p className="text-gray-600 mb-4">Дополнительные занятия, где я рассказываю о применении математики в жизни, истории математических открытий, разбираю задания ОГЭ и отвечаю на вопросы учеников</p>
               <Badge variant="outline" className="border-success-green text-success-green">
                 Математика в жизни
+              </Badge>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:shadow-success-green/20">
+            <CardHeader className="text-center pb-4">
+              <div className="w-16 h-16 bg-success-green/10 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-success-green/20 transition-colors">
+                <Icon name="Users" size={32} className="text-success-green" />
+              </div>
+              <CardTitle className="text-xl font-inter">Группы</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-gray-600 mb-4">8-12 учеников одного уровня знаний</p>
+              <Badge variant="outline" className="border-success-green text-success-green">
+                Одинаковый уровень
               </Badge>
             </CardContent>
           </Card>
