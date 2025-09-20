@@ -10,10 +10,13 @@ const VideoModal = () => {
     <>
       <button 
         onClick={() => setIsOpen(true)}
-        className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-lg text-center hover:from-blue-600 hover:to-purple-700 transition-colors cursor-pointer w-full"
+        className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-xl text-center hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-200 cursor-pointer w-full shadow-lg hover:shadow-xl border-2 border-transparent hover:border-white/20"
       >
-        <Icon name="Play" size={24} className="mx-auto mb-2" />
-        <div className="text-sm font-medium">как им пользоваться</div>
+        <div className="flex items-center justify-center gap-2 mb-1">
+          <Icon name="Play" size={20} className="text-white" />
+          <span className="text-sm font-semibold uppercase tracking-wide">Видео</span>
+        </div>
+        <div className="text-sm font-medium">▶ Как им пользоваться</div>
       </button>
 
       {isOpen && (
