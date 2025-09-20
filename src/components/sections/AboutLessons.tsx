@@ -16,7 +16,7 @@ const VideoModal = () => {
           <Icon name="Play" size={20} className="text-white" />
           <span className="text-sm font-semibold uppercase tracking-wide">Видео</span>
         </div>
-        <div className="text-sm font-medium">▶ Как им пользоваться</div>
+        <div className="text-sm font-medium"> Как им пользоваться</div>
       </button>
 
       {isOpen && (
