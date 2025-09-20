@@ -106,8 +106,8 @@ const AboutLessons = () => {
               <div className="text-3xl font-bold text-motivation-red mb-2">800₽</div>
               <p className="text-gray-600 mb-4">за занятие</p>
               <div className="bg-gradient-to-r from-success-green to-vibrant-purple text-white p-3 rounded-xl">
-                <div className="font-bold">🎁 Бонус 5000₽</div>
-                <div className="text-sm">за пятерку на ОГЭ!</div>
+                <div className="font-bold">🎁 Бесплатные занятия</div>
+                <div className="text-sm">в группе и индивидуально</div>
               </div>
             </CardContent>
           </Card>
