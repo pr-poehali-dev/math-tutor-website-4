@@ -246,35 +246,7 @@ const FAQSection = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-11" className="bg-white rounded-lg shadow-sm border-0">
-              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
-                <span className="font-inter font-semibold">Как получить 5 тысяч рублей?</span>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-4">
-                <div className="text-gray-700 leading-relaxed space-y-3">
-                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border border-yellow-200">
-                    <p className="font-bold text-orange-800 text-lg">🎯 Простая формула успеха:</p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">1️⃣</span>
-                      <p>Записываетесь ко мне на занятия</p>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">2️⃣</span>
-                      <p>Пишете ОГЭ на <strong>пятерку</strong></p>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">3️⃣</span>
-                      <p>Получаете <strong>5000 рублей!</strong></p>
-                    </div>
-                  </div>
-                  <div className="bg-blue-50 p-3 rounded-lg">
-                    <p className="text-sm"><strong>💡 На что потратить:</strong> подарок себе или праздник в честь успешной сдачи ОГЭ!</p>
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
+
           </Accordion>
         </div>
       </div>
